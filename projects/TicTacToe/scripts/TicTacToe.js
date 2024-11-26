@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll(".cell");
 const restartButton = document.getElementById("restartBtn");
+let title = document.querySelector(".title");
 
 const turnIndicator = document.createElement("div");
 turnIndicator.classList.add("turn-indicator");
@@ -62,6 +63,8 @@ function endGame(draw) {
     } else {
         turnIndicator.innerHTML = `Player <span class="${currentPlayer === "X" ? "player-x" : "player-o"
             }">${currentPlayer}</span> wins!`;
+        title.innerHTML = "Tic Tac Toe"
+        title.style.color = currentPlayer === "X" ? "#ff5c5c" : "#5c85ff";
     }
 }
 
@@ -73,6 +76,7 @@ function updateTurnIndicator() {
 restartButton.addEventListener("click", () => {
     gameActive = true;
     currentPlayer = "X";
+    title.style.color = "rgb(151, 151, 151)";
     gameState.fill(null);
     cells.forEach((cell) => {
         cell.textContent = "";
