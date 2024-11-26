@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Professional Portfolio - Adam Zborovsky</title>
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="section-home">
+        <div class="content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Building creative and impactful solutions for the web.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+        <div class="rotated-images">
+            <img src="Images/htmlIcon.webp" alt="html image">
+            <img src="Images/cssIcon.webp" alt="css image">
+            <img src="Images/jsIcon.webp" alt="js image">
+        </div>
+    </section>
+
+    <section id="about" class="section-about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I am a web developer specializing in creating user-centric, responsive websites that adapt beautifully to
+                any device.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section-projects">
+        <h2>My Projects</h2>
+        <div class="projects-gallery">
+            <div class="project-card">
+                <img src="Images/Coffee.png" alt="Project image">
+                <h3>Coffee</h3>
+                <a href="Projects/Coffee/Index.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Images/contactForm.png" alt="Project image">
+                <h3>Contact Form</h3>
+                <a href="Projects/contactForm/Index.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Images/DiscoverTheWorld.png" alt="Project image">
+                <h3>DiscoverTheWorld</h3>
+                <a href="Projects/DiscoverTheWorld/Index.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Images/Here&Now.png" alt="Project image">
+                <h3>Here & Now</h3>
+                <a href="Projects/Here&Now/Index.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Images/LetUsPushYouForward.png" alt="Project image">
+                <h3>Let Us Push You Forward</h3>
+                <a href="Projects/LetUsPushYouForward/Index.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="Images/ThinkOutsideTheBox.png" alt="Project image">
+                <h3>Think Outside The Box</h3>
+                <a href="projects/ThinkOutsideTheBox/Index.html">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-contact">
+        <h2>Contact Me</h2>
+        <form method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Adam Zborovsky. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
