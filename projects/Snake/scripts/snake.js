@@ -2,17 +2,20 @@ const board = document.getElementById("gameBoard");
 const scoreDisplay = document.getElementById("score");
 const startButton = document.getElementById("startBtn");
 const countdownDisplay = document.getElementById("countdown");
+const upBtn = document.getElementById("upBtn");
+const downBtn = document.getElementById("downBtn");
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
 
 let snake = [{ x: 240, y: 240 }];
 let direction = { x: 0, y: 0 };
 let food = { x: 0, y: 0 };
 let score = 0;
-const boardSize = 500;
+let boardSize = 500;
 const tileSize = 20;
 let gameInterval;
 let gameStarted = false;
 
-// Start Game
 function startGame() {
     countdownDisplay.style.display = "block";
     let countdown = 3;
@@ -98,6 +101,21 @@ function renderGame() {
     board.appendChild(foodElement);
 }
 
+function adjustForMobile() {
+    if (window.innerWidth <= 600) {
+        board.style.width = "300px";
+        board.style.height = "300px";
+        boardSize = 300
+    } else {
+        board.style.width = "500px";
+        board.style.height = "500px";
+        boardSize = 500
+    }
+}
+
+adjustForMobile();
+window.addEventListener("resize", adjustForMobile);
+
 window.addEventListener("keydown", e => {
     switch (e.key) {
         case "ArrowUp":
@@ -114,5 +132,22 @@ window.addEventListener("keydown", e => {
             break;
     }
 });
+
+upBtn.addEventListener("click", () => {
+    if (direction.y === 0) direction = { x: 0, y: -tileSize };
+});
+
+downBtn.addEventListener("click", () => {
+    if (direction.y === 0) direction = { x: 0, y: tileSize };
+});
+
+leftBtn.addEventListener("click", () => {
+    if (direction.x === 0) direction = { x: -tileSize, y: 0 };
+});
+
+rightBtn.addEventListener("click", () => {
+    if (direction.x === 0) direction = { x: tileSize, y: 0 };
+});
+
 
 startButton.addEventListener("click", startGame);
