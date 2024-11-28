@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="style/trivia.css">
+</head>
+
+<body>
+    <div class="game-window">
+        <header>
+            <h1>Trivia Challenge</h1>
+        </header>
+        <main id="start-screen">
+            <div id="difficulty-selection">
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+            <button id="start-btn" disabled>Start Game</button>
+        </main>
+        <main id="game-screen" style="display: none;">
+            <div id="question-container">
+                <p id="question">Question will appear here</p>
+                <div id="answers">
+                    <!-- Options will be dynamically inserted -->
+                </div>
+            </div>
+            <div id="score-container">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+        </main>
+        <footer>
+            <button id="next-btn" disabled style="display: none;">Next Question</button>
+        </footer>
+    </div>
+    <script src="scripts/trivia.js"></script>
+</body>
+
+</html>
