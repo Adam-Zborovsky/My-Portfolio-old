@@ -1,149 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Professional Portfolio - Adam Zborovsky</title>
-    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
-    <link rel="stylesheet" href="style/index.css">
-</head>
-
-<body>
-    <header>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <div class="logo">
-            <img src="Images/logo.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="section-home">
-        <div class="content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Building creative and impactful solutions for the web.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-        <div class="rotated-images">
-            <img src="Images/htmlIcon.webp" alt="html image">
-            <img src="Images/cssIcon.webp" alt="css image">
-            <img src="Images/jsIcon.webp" alt="js image">
-        </div>
-    </section>
-
-    <section id="about" class="section-about">
-        <div class="about-content">
-            <h2>About Me</h2>
-            <p>I am a web developer specializing in creating user-centric, responsive websites that adapt beautifully to
-                any device.</p>
-        </div>
-    </section>
-
-    <section id="projects" class="section-projects">
-        <h2>Page Center</h2>
-        <div class="projects-gallery">
-            <div class="project-card">
-                <img src="images/coffee.png" alt="Project image">
-                <h3>Coffee</h3>
-                <a href="projects/coffee/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/contactForm.png" alt="Project image">
-                <h3>Contact Form</h3>
-                <a href="projects/contactForm/Index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/discoverTheWorld.png" alt="Project image">
-                <h3>Discover The World</h3>
-                <a href="projects/discoverTheWorld/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/here&Now.png" alt="Project image">
-                <h3>Here & Now</h3>
-                <a href="projects/here&Now/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/letUsPushYouForward.png" alt="Project image">
-                <h3>Let Us Push You Forward</h3>
-                <a href="projects/letUsPushYouForward/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/thinkOutsideTheBox.png" alt="Project image">
-                <h3>Think Outside The Box</h3>
-                <a href="projects/thinkOutsideTheBox/index.html">View Project</a>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="JSprojects" class="section-JS-projects">
-        <h2>Play Center</h2>
-        <div class="projects-gallery">
-            <div class="project-card">
-                <img src="images/ticTacToe.png" alt="Project image">
-                <h3>Tic Tac Toe</h3>
-                <a href="projects/ticTacToe/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/snake.png" alt="Project image">
-                <h3>Snake</h3>
-                <a href="Projects/snake/Index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/weatherApp.png" alt="Project image">
-                <h3>Weather App</h3>
-                <a href="Projects/weatherApp/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/trivia.png" alt="Project image">
-                <h3>Trivia</h3>
-                <a href="Projects/trivia/index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/LetUsPushYouForward.png" alt="Project image">
-                <h3>Let Us Push You Forward</h3>
-                <a href="Projects/LetUsPushYouForward/Index.html">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="images/ThinkOutsideTheBox.png" alt="Project image">
-                <h3>Think Outside The Box</h3>
-                <a href="projects/ThinkOutsideTheBox/Index.html">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-contact">
-        <h2>Contact Me</h2>
-        <form method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2024 Adam Zborovsky. All rights reserved.</p>
-    </footer>
-</body>
-
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Professional Portfolio - Adam Zborovsky
+  </title>
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="style/index.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <input class="menu-toggle" id="menu-toggle" type="checkbox"/>
+   <label class="hamburger" for="menu-toggle">
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+   </label>
+   <div class="logo">
+    <img alt="Logo" src="images/logo.png"/>
+   </div>
+   <nav>
+    <ul>
+     <li>
+      <a href="#home">
+       Home
+      </a>
+     </li>
+     <li>
+      <a href="#about">
+       About
+      </a>
+     </li>
+     <li>
+      <a href="#projects">
+       Projects
+      </a>
+     </li>
+     <li>
+      <a href="#contact">
+       Contact
+      </a>
+     </li>
+    </ul>
+   </nav>
+  </header>
+  <section class="section-home" id="home">
+   <div class="content">
+    <h1>
+     Welcome to My Portfolio
+    </h1>
+    <p>
+     Building creative and impactful solutions for the web.
+    </p>
+    <a class="btn" href="#projects">
+     View My Work
+    </a>
+   </div>
+   <div class="rotated-images">
+    <img alt="html image" src="images/htmlIcon.webp"/>
+    <img alt="css image" src="images/cssIcon.webp"/>
+    <img alt="js image" src="images/jsIcon.webp"/>
+   </div>
+  </section>
+  <section class="section-about" id="about">
+   <div class="about-content">
+    <h2>
+     About Me
+    </h2>
+    <p>
+     I am a web developer specializing in creating user-centric, responsive websites that adapt beautifully to
+                any device.
+    </p>
+   </div>
+  </section>
+  <section class="section-projects" id="projects">
+   <h2>
+    Page Center
+   </h2>
+   <div class="projects-gallery">
+    <div class="project-card">
+     <img alt="Project image" src="images/coffee.png"/>
+     <h3>
+      Coffee
+     </h3>
+     <a href="projects/coffee/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/contactForm.png"/>
+     <h3>
+      Contact Form
+     </h3>
+     <a href="projects/contactForm/Index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/discoverTheWorld.png"/>
+     <h3>
+      Discover The World
+     </h3>
+     <a href="projects/discoverTheWorld/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/here&amp;Now.png"/>
+     <h3>
+      Here &amp; Now
+     </h3>
+     <a href="projects/here&amp;Now/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/letUsPushYouForward.png"/>
+     <h3>
+      Let Us Push You Forward
+     </h3>
+     <a href="projects/letUsPushYouForward/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/thinkOutsideTheBox.png"/>
+     <h3>
+      Think Outside The Box
+     </h3>
+     <a href="projects/thinkOutsideTheBox/index.html">
+      View Project
+     </a>
+    </div>
+   </div>
+  </section>
+  <section class="section-JS-projects" id="JSprojects">
+   <h2>
+    Play Center
+   </h2>
+   <div class="projects-gallery">
+    <div class="project-card">
+     <img alt="Project image" src="images/ticTacToe.png"/>
+     <h3>
+      Tic Tac Toe
+     </h3>
+     <a href="projects/ticTacToe/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/snake.png"/>
+     <h3>
+      Snake
+     </h3>
+     <a href="projects/snake/Index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/weatherApp.png"/>
+     <h3>
+      Weather App
+     </h3>
+     <a href="projects/weatherApp/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/trivia.png"/>
+     <h3>
+      Trivia
+     </h3>
+     <a href="projects/trivia/index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/LetUsPushYouForward.png"/>
+     <h3>
+      Let Us Push You Forward
+     </h3>
+     <a href="projects/LetUsPushYouForward/Index.html">
+      View Project
+     </a>
+    </div>
+    <div class="project-card">
+     <img alt="Project image" src="images/ThinkOutsideTheBox.png"/>
+     <h3>
+      Think Outside The Box
+     </h3>
+     <a href="projects/ThinkOutsideTheBox/Index.html">
+      View Project
+     </a>
+    </div>
+   </div>
+  </section>
+  <section class="section-contact" id="contact">
+   <h2>
+    Contact Me
+   </h2>
+   <form method="POST">
+    <label for="name">
+     Name:
+    </label>
+    <input id="name" name="name" required="" type="text"/>
+    <label for="email">
+     Email:
+    </label>
+    <input id="email" name="email" required="" type="email"/>
+    <label for="message">
+     Message:
+    </label>
+    <textarea id="message" name="message" required=""></textarea>
+    <button class="btn" type="submit">
+     Send Message
+    </button>
+   </form>
+  </section>
+  <footer>
+   <p>
+    © 2024 Adam Zborovsky. All rights reserved.
+   </p>
+  </footer>
+ </body>
 </html>
