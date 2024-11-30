@@ -1,0 +1,156 @@
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    direction: rtl;
+    background-image: linear-gradient(180deg, #281eff 0%, #2dff8c 100%);
+    margin: auto;
+    height: 100%;
+    max-width: 100vw;
+    min-height: 100vh;
+}
+
+.frame {
+    top: 31.2%;
+    left: 21.35%;
+    width: 57.3%;
+    height: 37.7%;
+    background: none;
+    opacity: 1;
+    position: absolute;
+}
+
+.frame h1 {
+    text-align: center;
+    font: normal normal normal 160px/231px Satisfy;
+    letter-spacing: 0px;
+    color: #ffffff;
+    text-shadow: 0px 0px 36px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    margin: 0;
+}
+
+.frame h2 {
+    text-align: center;
+    font: normal normal normal 32px/38px Varela Round;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.frame p {
+    text-align: center;
+    font: normal normal normal 16px/20px Varela Round;
+    letter-spacing: 0px;
+    color: #f9f9f9;
+    opacity: 1;
+}
+
+form {
+    width: 100%;
+}
+
+.form {
+    text-align: center;
+    margin-right: -5%;
+    margin-left: 0;
+    width: 110%;
+}
+
+label {
+    display: block;
+    color: #f9f9f9;
+    text-align: right;
+}
+
+.field {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+input {
+    width: 25rem;
+    height: 2rem;
+    background: rgba(246, 246, 246, 0.14) 0% 0% no-repeat padding-box;
+    border: 2px solid #ffffff;
+    opacity: 1;
+    margin-bottom: 2%;
+}
+
+button {
+    background-color: white;
+    color: #2823FD;
+    font-size: 16px;
+    margin-top: 3%;
+    height: 2.3rem;
+    width: 10rem;
+    border: none;
+}
+
+
+
+@media (max-width: 1370px) {
+    .frame h1 {
+        font: normal normal normal 120px/120px Satisfy;
+    }
+
+    .form {
+        display: block;
+        padding-right: 10%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 657px) {
+    body {
+        width: 100%;
+        min-height: 657px;
+        margin: auto;
+    }
+
+    .frame {
+        top: 12.2%;
+        left: 6.5%;
+        width: 87%;
+        height: 77%;
+    }
+
+    .frame h1 {
+        font: normal normal normal 60px/86px Satisfy;
+    }
+
+    .frame h2 {
+        font: normal normal normal 18px/22px Varela Round;
+    }
+
+    .frame p {
+        font: normal normal normal 16px/20px Varela Round;
+        margin-bottom: 25%;
+    }
+
+    .form {
+        width: 90%;
+    }
+
+    .field {
+        display: block;
+        margin-left: 2.6%;
+        margin-top: 4%;
+        font: normal normal normal 11px/13px Varela Round;
+    }
+
+    input {
+        margin-top: 5px;
+        width: 100%;
+        height: 2rem;
+        border: 1px solid #ffffff;
+    }
+
+    button {
+        font: normal normal normal 12px/13px Varela Round;
+
+        width: 102%;
+    }
+}
