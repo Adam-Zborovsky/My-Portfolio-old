@@ -15,7 +15,7 @@ const answersElement = document.getElementById("answers");
 const scoreElement = document.getElementById("score");
 
 async function fetchQuestions(amount, difficulty) {
-    const url = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+    const url = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}`;
     const response = await fetch(url);
     const data = await response.json();
     return data.results.map(formatQuestion);
