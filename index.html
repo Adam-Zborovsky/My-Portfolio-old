@@ -64,75 +64,71 @@
         </div>
     </section>
     <section class="section-projects" id="projects">
-        <h2>HTML & CSS Projects</h2>
-        <div class="projects-gallery">
-            <div class="project-card">
-                <img alt="Project image" src="images/coffee.png" />
-                <h3>Coffee</h3>
-                <a href="projects/coffee/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/contactForm.png" />
-                <h3>Contact Form</h3>
-                <a href="projects/contactForm/Index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/discoverTheWorld.png" />
-                <h3>Discover The World</h3>
-                <a href="projects/discoverTheWorld/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/here&amp;Now.png" />
-                <h3>Here &amp; Now</h3>
-                <a href="projects/here&amp;Now/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/letUsPushYouForward.png" />
-                <h3>Let Us Push You Forward</h3>
-                <a href="projects/letUsPushYouForward/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/thinkOutsideTheBox.png" />
-                <h3>Think Outside The Box</h3>
-                <a href="projects/thinkOutsideTheBox/index.html"> View Project </a>
-            </div>
+        <div class="category-icons">
+            <img src="images/htmlIcon.webp" alt="html icon" class="icon" onclick="changeCategory('html-css')" />
+            <img src="images/jsIcon.webp" alt="js icon" class="icon" onclick="changeCategory('javascript')" />
+        </div>
+        <div class="carousel-container">
+            <button class="nav-button left" onclick="prevItem()">&#10094;</button>
+            <main id="carousel">
+                <!-- HTML & CSS Category -->
+                <div class="item html-css">
+                    <img src="images/coffee.png" alt="Coffee">
+                    <h3>Coffee</h3>
+                    <a href="projects/coffee/index.html">View Project</a>
+                </div>
+                <div class="item html-css">
+                    <img src="images/contactForm.png" alt="Contact Form">
+                    <h3>Contact Form</h3>
+                    <a href="projects/contactForm/index.html">View Project</a>
+                </div>
+                <div class="item html-css">
+                    <img src="images/discoverTheWorld.png" alt="Discover The World">
+                    <h3>Discover The World</h3>
+                    <a href="projects/discoverTheWorld/index.html">View Project</a>
+                </div>
+                <div class="item html-css">
+                    <img src="images/here&Now.png" alt="Here & Now">
+                    <h3>Here & Now</h3>
+                    <a href="projects/here&Now/index.html">View Project</a>
+                </div>
+                <div class="item html-css">
+                    <img src="images/letUsPushYouForward.png" alt="Let Us Push You Forward">
+                    <h3>Let Us Push You Forward</h3>
+                    <a href="projects/letUsPushYouForward/index.html">View Project</a>
+                </div>
+                <div class="item html-css">
+                    <img src="images/thinkOutsideTheBox.png" alt="Think Outside The Box">
+                    <h3>Let Us Push You Forward</h3>
+                    <a href="projects/thinkOutsideTheBox/index.html">View Project</a>
+                </div>
+
+                <!-- JavaScript Category -->
+                <div class="item javascript" style="display: none;">
+                    <img src="images/ticTacToe.png" alt="Tic Tac Toe">
+                    <h3>Tic Tac Toe</h3>
+                    <a href="projects/ticTacToe/index.html">View Project</a>
+                </div>
+                <div class="item javascript" style="display: none;">
+                    <img src="images/snake.png" alt="Snake">
+                    <h3>Snake</h3>
+                    <a href="projects/snake/index.html">View Project</a>
+                </div>
+                <div class="item javascript" style="display: none;">
+                    <img src="images/weatherApp.png" alt="Weather App">
+                    <h3>Weather App</h3>
+                    <a href="projects/weatherApp/index.html">View Project</a>
+                </div>
+                <div class="item javascript" style="display: none;">
+                    <img src="images/trivia.png" alt="Trivia">
+                    <h3>Trivia</h3>
+                    <a href="projects/trivia/index.html">View Project</a>
+                </div>
+            </main>
+            <button class="nav-button right" onclick="nextItem()">&#10095;</button>
         </div>
     </section>
-    <section class="section-JS-projects" id="JSprojects">
-        <h2>Javascript Projects</h2>
-        <div class="projects-gallery">
-            <div class="project-card">
-                <img alt="Project image" src="images/ticTacToe.png" />
-                <h3>Tic Tac Toe</h3>
-                <a href="projects/ticTacToe/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/snake.png" />
-                <h3>Snake</h3>
-                <a href="projects/snake/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/weatherApp.png" />
-                <h3>Weather App</h3>
-                <a href="projects/weatherApp/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/trivia.png" />
-                <h3>Trivia</h3>
-                <a href="projects/trivia/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/letUsPushYouForward.png" />
-                <h3>Let Us Push You Forward</h3>
-                <a href="projects/letUsPushYouForward/index.html"> View Project </a>
-            </div>
-            <div class="project-card">
-                <img alt="Project image" src="images/thinkOutsideTheBox.png" />
-                <h3>Think Outside The Box</h3>
-                <a href="projects/thinkOutsideTheBox/index.html"> View Project </a>
-            </div>
-        </div>
-    </section>
+
     <section class="section-contact" id="contact">
         <h2>Contact Me</h2>
         <form method="POST">
@@ -148,20 +144,7 @@
     <footer>
         <p>© 2024 Adam Zborovsky. All rights reserved.</p>
     </footer>
-    <script>
-        function toggleMenu() {
-            const overlay = document.getElementById("overlay");
-            const sideMenu = document.getElementById("side-menu");
-            overlay.classList.toggle("active");
-            sideMenu.classList.toggle("active");
-        }
-        function closeMenu() {
-            const overlay = document.getElementById("overlay");
-            const sideMenu = document.getElementById("side-menu");
-            overlay.classList.remove("active");
-            sideMenu.classList.remove("active");
-        }
-    </script>
+    <script src="script/index.js"></script>
 </body>
 
 </html>
