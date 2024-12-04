@@ -51,7 +51,7 @@ header .logo img {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     transition: width 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 10;
 }
 
 .overlay.active {
@@ -70,7 +70,7 @@ header .logo img {
     background: #222;
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
     transition: right 0.3s ease-in-out;
-    z-index: 3;
+    z-index: 10;
 }
 
 .side-menu.active {
@@ -120,7 +120,6 @@ header .logo img {
     justify-content: space-between;
     align-items: center;
     padding: 40px 15vw 40px 15vw;
-    z-index: 3;
 }
 
 .section-home .content {
