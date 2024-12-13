@@ -1,0 +1,108 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.5s ease;
+}
+
+/* Calendar Container */
+.calendar-container {
+    width: 90%;
+    max-width: 600px;
+    background: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+/* Header */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #34495e;
+    color: #ecf0f1;
+    text-align: center;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.calendar-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Calendar View */
+.calendar-view {
+    padding: 15px;
+}
+
+/* Days of the Week */
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.day {
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+/* Dates Grid */
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.date {
+    background: #34495e;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.date:hover {
+    background: #1abc9c;
+    transform: translateY(-5px);
+}
+
+.date.today {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.date.event {
+    background: #3498db;
+    color: #fff;
+}

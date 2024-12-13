@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calendar</title>
+    <link rel="stylesheet" href="style/interactiveCalendar.css">
+</head>
+
+<body>
+    <div class="calendar-container">
+        <header class="calendar-header">
+            <button id="prev-month" class="nav-btn">❮</button>
+            <h1 id="current-month">March 2024</h1>
+            <button id="next-month" class="nav-btn">❯</button>
+        </header>
+        <div class="calendar-view">
+            <div class="days-of-week">
+                <div class="day">Sun</div>
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+            </div>
+            <div class="dates-grid" id="dates-grid">
+                <!-- Dates will be dynamically populated via JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="script/interactiveCalendar.js"></script>
+</body>
+
+</html>
