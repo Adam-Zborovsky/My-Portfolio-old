@@ -187,17 +187,25 @@ header .logo img {
 
 /* Projects Section */
 .category-icons {
-    width: 200px;
+    width: 185px;
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
+}
+.category-icons button {
     background: transparent;
+    border: none;
+    transition: 0.3s;
+}
+.category-icons button:hover {
+    cursor: pointer;
+    transform: translate(0, -15px);
 }
 .category-icons img {
-    width: 75px;
-    height: 75px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    box-shadow: 15px 28px 36px rgba(0, 0, 0, 0.4);
 }
 .carousel-container {
     position: relative;
