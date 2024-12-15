@@ -130,43 +130,73 @@ function renderCalendar(year, month) {
 }
 
 // Handle Date Click
-function handleDateClick(date) {
-    const eventList = events[date] || [];
-    const eventDescription = eventList.length
-        ? eventList.map((e, i) => `${i + 1}. ${e}`).join("\n")
-        : "No events";
+// Event Window Elements
+const eventWindow = document.getElementById("event-window");
+const closeWindowBtn = document.getElementById("close-window");
+const eventWindowTitle = document.getElementById("event-window-title");
+const eventList = document.getElementById("event-list");
+const eventInput = document.getElementById("event-input");
+const addEventButton = document.getElementById("add-event-btn");
+const deleteEventButton = document.getElementById("delete-event-btn");
+const calendarContainer = document.querySelector(".calendar-container");
 
-    const userChoice = prompt(
-        `Events on ${date}:\n${eventDescription}\n\nOptions:\n1. Add Event\n2. Delete All Events\n3. Cancel`
-    );
+// Current date reference
+let selectedDate = "";
 
-    switch (userChoice) {
-        case "1":
-            const newEvent = prompt("Enter event description:");
-            if (newEvent) {
-                if (!events[date]) events[date] = [];
-                events[date].push(newEvent);
-                alert("Event added!");
-            }
-            break;
+// Open Event Window
+function openEventWindow(date) {
+    selectedDate = date;
+    eventWindowTitle.textContent = `Events for ${date}`;
+    eventInput.value = "";
+    populateEventList();
 
-        case "2":
-            if (
-                eventList.length &&
-                confirm(
-                    "Are you sure you want to delete all events for this date?"
-                )
-            ) {
-                delete events[date];
-                alert("All events deleted!");
-            }
-            break;
+    // Adjust positions
+    eventWindow.classList.remove("hidden");
+    calendarContainer.style.transform = "translateX(-150px)";
+}
 
-        default:
-            break;
+// Close Event Window
+closeWindowBtn.addEventListener("click", () => {
+    eventWindow.classList.add("hidden");
+    calendarContainer.style.transform = "translateX(0)";
+});
+
+// Populate Event List
+function populateEventList() {
+    eventList.innerHTML = "";
+    const eventsForDate = events[selectedDate] || [];
+    if (eventsForDate.length === 0) {
+        eventList.innerHTML = "<p>No events</p>";
+        return;
     }
+    eventsForDate.forEach((event, index) => {
+        const eventItem = document.createElement("p");
+        eventItem.textContent = `${index + 1}. ${event}`;
+        eventList.appendChild(eventItem);
+    });
+}
 
-    renderCalendar(currentYear, currentMonth);
+// Handle Add Event
+addEventButton.addEventListener("click", () => {
+    const newEvent = eventInput.value.trim();
+    if (!newEvent) return;
+    if (!events[selectedDate]) events[selectedDate] = [];
+    events[selectedDate].push(newEvent);
+    populateEventList();
+    eventInput.value = "";
+});
+
+// Delete All Events
+deleteEventButton.addEventListener("click", () => {
+    if (confirm("Delete all events for this date?")) {
+        delete events[selectedDate];
+        populateEventList();
+    }
+});
+
+// Handle Date Click
+function handleDateClick(date) {
+    openEventWindow(date);
 }
 
 // Navigation

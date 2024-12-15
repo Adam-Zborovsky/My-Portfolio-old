@@ -30,8 +30,6 @@ nav .logo img {
 .menu-icon {
     cursor: pointer;
     display: none;
-    flex-direction: column;
-    gap: 5px;
     margin-right: 15px;
 }
 
@@ -311,18 +309,8 @@ footer {
     }
     .menu-icon {
         display: flex;
-    }
-    .side-menu {
-        right: -225px;
-        width: 225px;
-    }
-
-    .menu-links li a {
-        font-size: 20px;
-    }
-
-    .credits {
-        font-size: 12px;
+        flex-direction: column;
+        gap: 5px;
     }
 
     .section-home {
