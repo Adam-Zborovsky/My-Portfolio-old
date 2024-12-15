@@ -5,9 +5,14 @@ const nextMonthButton = document.getElementById("next-month");
 const eventWindow = document.getElementById("event-window");
 const closeWindow = document.getElementById("close-window");
 const calendarContainer = document.getElementById("calendar-container");
+const eventWindowTitle = document.getElementById("event-window-title");
+const eventList = document.getElementById("event-list");
+const eventInput = document.getElementById("event-input");
+const addEventButton = document.getElementById("add-event-btn");
+const deleteEventButton = document.getElementById("delete-event-btn");
 
 let currentDate = new Date();
-let events = {};
+let events = {}; // Stores events
 
 // Seasonal Colors
 function applySeasonalColors(month) {
@@ -60,7 +65,7 @@ function renderCalendar(date) {
         dateCell.textContent = day;
         dateCell.classList.add("date");
 
-        const today = new Date(); // Corrected: Fetch today's date dynamically
+        const today = new Date(); // Fetch today's date dynamically
 
         if (
             day === today.getDate() &&
@@ -72,7 +77,7 @@ function renderCalendar(date) {
 
         dateCell.addEventListener("click", (e) => {
             e.stopPropagation(); // Prevent this click from triggering the background close
-            openEventWindow();
+            openEventWindow(date.getFullYear(), date.getMonth(), day);
         });
         datesGrid.appendChild(dateCell);
     }
@@ -81,13 +86,61 @@ function renderCalendar(date) {
 }
 
 // Open Event Window
-function openEventWindow() {
+function openEventWindow(year, month, day) {
+    closeEventWindow(); // Close the window before reopening
+    const formattedDate = `${year}-${String(month + 1).padStart(
+        2,
+        "0"
+    )}-${String(day).padStart(2, "0")}`;
     eventWindow.classList.remove("hidden");
+    eventWindowTitle.textContent = `Events: ${formattedDate}`;
+    populateEventList(formattedDate);
+    addEventButton.onclick = () => addEvent(formattedDate);
+    deleteEventButton.onclick = () => deleteEvents(formattedDate);
 }
 
 // Close Event Window
 function closeEventWindow() {
     eventWindow.classList.add("hidden");
+    eventList.innerHTML = ""; // Clear the list when closing
+}
+
+// Populate Event List
+function populateEventList(date) {
+    eventList.innerHTML = ""; // Clear old list
+    const eventArray = events[date] || [];
+    if (eventArray.length === 0) {
+        eventList.innerHTML =
+            "<p style = 'color:var(--bg-color)'>No events for this date.</p>";
+    } else {
+        eventArray.forEach((event, index) => {
+            const listItem = document.createElement("p");
+            listItem.style.color = "var(--bg-color)";
+            listItem.textContent = `${index + 1}. ${event}`;
+            eventList.appendChild(listItem);
+        });
+    }
+}
+
+// Add Event
+function addEvent(date) {
+    const newEvent = eventInput.value.trim();
+    if (newEvent) {
+        if (!events[date]) events[date] = [];
+        events[date].push(newEvent);
+        eventInput.value = ""; // Clear input
+        populateEventList(date);
+        console.log("Updated Events:", JSON.stringify(events, null, 2));
+    }
+}
+
+// Delete All Events
+function deleteEvents(date) {
+    if (confirm("Are you sure you want to delete all events for this date?")) {
+        delete events[date];
+        populateEventList(date);
+        console.log("Updated Events:", JSON.stringify(events, null, 2));
+    }
 }
 
 // Close the event window when clicking outside it or on the background
