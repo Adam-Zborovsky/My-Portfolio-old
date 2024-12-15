@@ -9,38 +9,38 @@
 </head>
 
 <body>
-    <div class="calendar-container">
+    <!-- Calendar Container -->
+    <div class="calendar-container" id="calendar-container">
         <header class="calendar-header">
             <button id="prev-month" class="nav-btn">❮</button>
-            <h1 id="current-month">March 2024</h1>
+            <h1 id="current-month">December 2024</h1>
             <button id="next-month" class="nav-btn">❯</button>
         </header>
         <div class="calendar-view">
             <div class="days-of-week">
-                <div class="day">Sun</div>
-                <div class="day">Mon</div>
-                <div class="day">Tue</div>
-                <div class="day">Wed</div>
-                <div class="day">Thu</div>
-                <div class="day">Fri</div>
-                <div class="day">Sat</div>
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
             </div>
-            <div class="dates-grid" id="dates-grid">
-                <!-- Dates will be dynamically populated via JavaScript -->
-            </div>
+            <div class="dates-grid" id="dates-grid"></div>
         </div>
     </div>
-    <!-- Small Event Window -->
-    <div id="event-window" class="event-window hidden">
+
+    <!-- Event Side Window -->
+    <div class="event-window hidden" id="event-window">
         <div class="event-header">
             <h3 id="event-window-title">Events</h3>
-            <button id="close-window" class="close-window-btn">&times;</button>
+            <button id="close-window" class="close-btn">&times;</button>
         </div>
-        <div id="event-window-body">
+        <div class="event-window-body">
             <div id="event-list"></div>
             <input type="text" id="event-input" placeholder="Add a new event..." />
-            <button id="add-event-btn" class="event-btn">Add Event</button>
-            <button id="delete-event-btn" class="event-btn danger">Delete All Events</button>
+            <button id="add-event-btn" class="btn">Add Event</button>
+            <button id="delete-event-btn" class="btn danger">Delete All Events</button>
         </div>
     </div>
 

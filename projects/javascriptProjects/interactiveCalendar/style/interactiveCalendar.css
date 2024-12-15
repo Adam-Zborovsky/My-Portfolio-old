@@ -2,120 +2,126 @@
 body {
     margin: 0;
     font-family: "Segoe UI", Tahoma, sans-serif;
-    background: linear-gradient(to bottom, #2c3e50, #34495e);
-    color: #ecf0f1;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
     height: 100vh;
-    transition: background 0.5s ease;
-    position: relative;
+    background: var(--bg-color);
+    overflow: hidden;
 }
 
 /* Calendar Container */
 .calendar-container {
-    position: relative;
-    background: #4a6fa5;
-    width: 90%;
-    max-width: 600px;
+    width: 475px;
+    height: 425px;
+    background: var(--calendar-color);
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    padding: 15px;
     transition: transform 0.3s ease;
 }
-
-/* Header */
 .calendar-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: #6a8ebd;
     color: #fff;
+    font-size: 1.2rem;
     text-align: center;
 }
-
 .nav-btn {
     background: none;
     border: none;
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-btn:hover {
-    transform: scale(1.2);
+    color: #ff9800;
 }
-
-/* Dates Grid */
-.dates-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    padding: 15px;
-}
-
-.date {
-    background: #6a8ebd;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.date:hover {
-    background: #5a7ea5;
-}
-
-.date.today {
-    background: #e74c3c;
-    color: #fff;
-}
-
-/* Small Event Window */
+/* Event Side Window */
 .event-window {
-    position: absolute;
-    left: 110%; /* Place it next to the calendar */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 280px;
-    background: #4a6fa5;
-    border: 2px solid #ffffff;
+    width: 275px;
+    height: 425px;
+    background: var(--calendar-color);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
     padding: 15px;
-    z-index: 1000;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    display: none;
 }
 
 .event-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     color: #fff;
+    font-size: 1.1rem;
 }
 
-.close-window-btn {
+.close-btn {
     background: none;
     border: none;
     color: #e74c3c;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
-.close-window-btn:hover {
-    color: #c0392b;
+.days-of-week,
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
 }
 
-.event-btn {
-    padding: 8px 10px;
-    margin-top: 5px;
+.date {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--hover-color);
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.date:hover {
+    background: var(--hover-effect);
+}
+
+.date.today {
+    background: #e74c3c;
+}
+
+#event-input {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 0.8vw;
+    color: var(--calendar-color);
+    background-color: var(--bg-color);
+    box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+    border-radius: 0.4vw;
+    border: none;
+    outline: none;
+    padding: 0.4vw;
+    width: 90%;
+    transition: 0.4s;
+}
+
+#event-input:hover {
+    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+}
+
+#event-input:focus {
+    box-shadow: 0 0 0 0.15vw var(--hover-effect);
+}
+.btn {
+    margin-top: 10px;
+    padding: 8px;
     width: 100%;
     background: #007aff;
     color: #fff;
@@ -125,10 +131,10 @@ body {
     transition: background 0.3s ease;
 }
 
-.event-btn.danger {
+.btn.danger {
     background: #e74c3c;
 }
 
-.event-btn.danger:hover {
-    background: #c0392b;
+.btn:hover {
+    background: #005ecb;
 }
