@@ -1,17 +1,3 @@
-function toggleMenu() {
-    const overlay = document.getElementById("overlay");
-    const sideMenu = document.getElementById("side-menu");
-    overlay.classList.toggle("active");
-    sideMenu.classList.toggle("active");
-}
-
-function closeMenu() {
-    const overlay = document.getElementById("overlay");
-    const sideMenu = document.getElementById("side-menu");
-    overlay.classList.remove("active");
-    sideMenu.classList.remove("active");
-}
-
 let currentCategory = "javascript";
 let currentIndex = 0;
 
