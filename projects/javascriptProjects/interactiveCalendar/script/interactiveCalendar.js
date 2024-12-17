@@ -10,11 +10,20 @@ const eventList = document.getElementById("event-list");
 const eventInput = document.getElementById("event-input");
 const addEventButton = document.getElementById("add-event-btn");
 const deleteEventButton = document.getElementById("delete-event-btn");
+const EVENTS_STORAGE_KEY = "calendar_events";
 
 let currentDate = new Date();
-let events = {}; // Stores events
+let events = loadEvents();
 
-// Seasonal Colors
+function loadEvents() {
+    const storedEvents = localStorage.getItem(EVENTS_STORAGE_KEY);
+    return storedEvents ? JSON.parse(storedEvents) : {};
+}
+
+function saveEvents() {
+    localStorage.setItem(EVENTS_STORAGE_KEY, JSON.stringify(events));
+}
+
 function applySeasonalColors(month) {
     const root = document.documentElement;
 
@@ -41,7 +50,6 @@ function applySeasonalColors(month) {
     }
 }
 
-// Render Calendar
 function renderCalendar(date) {
     datesGrid.innerHTML = "";
     currentMonthElement.textContent = date.toLocaleString("default", {
@@ -65,7 +73,7 @@ function renderCalendar(date) {
         dateCell.textContent = day;
         dateCell.classList.add("date");
 
-        const today = new Date(); // Fetch today's date dynamically
+        const today = new Date();
 
         if (
             day === today.getDate() &&
@@ -76,7 +84,7 @@ function renderCalendar(date) {
         }
 
         dateCell.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent this click from triggering the background close
+            e.stopPropagation();
             openEventWindow(date.getFullYear(), date.getMonth(), day);
         });
         datesGrid.appendChild(dateCell);
@@ -85,9 +93,8 @@ function renderCalendar(date) {
     applySeasonalColors(date.getMonth());
 }
 
-// Open Event Window
 function openEventWindow(year, month, day) {
-    closeEventWindow(); // Close the window before reopening
+    closeEventWindow();
     const formattedDate = `${year}-${String(month + 1).padStart(
         2,
         "0"
@@ -99,51 +106,85 @@ function openEventWindow(year, month, day) {
     deleteEventButton.onclick = () => deleteEvents(formattedDate);
 }
 
-// Close Event Window
 function closeEventWindow() {
     eventWindow.classList.add("hidden");
-    eventList.innerHTML = ""; // Clear the list when closing
+    eventList.innerHTML = "";
 }
 
-// Populate Event List
 function populateEventList(date) {
-    eventList.innerHTML = ""; // Clear old list
+    eventList.innerHTML = "";
     const eventArray = events[date] || [];
     if (eventArray.length === 0) {
         eventList.innerHTML =
             "<p style = 'color:var(--bg-color)'>No events for this date.</p>";
     } else {
         eventArray.forEach((event, index) => {
-            const listItem = document.createElement("p");
+            const listItem = document.createElement("div");
             listItem.style.color = "var(--bg-color)";
-            listItem.textContent = `${index + 1}. ${event}`;
+            listItem.classList.add("event-item");
+
+            const eventText = document.createElement("span");
+            eventText.textContent = `${index + 1}. ${event}`;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.classList.add("edit-btn");
+            editButton.addEventListener("click", () => editEvent(date, index));
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-btn");
+            deleteButton.addEventListener("click", () =>
+                deleteSingleEvent(date, index)
+            );
+
+            listItem.appendChild(eventText);
+            listItem.appendChild(editButton);
+            listItem.appendChild(deleteButton);
             eventList.appendChild(listItem);
         });
     }
 }
 
-// Add Event
+function editEvent(date, index) {
+    const updatedEvent = prompt("Edit your event:", events[date][index]);
+    if (updatedEvent !== null) {
+        events[date][index] = updatedEvent.trim();
+        saveEvents();
+        populateEventList(date);
+    }
+}
+
+function deleteSingleEvent(date, index) {
+    if (confirm("Are you sure you want to delete this event?")) {
+        events[date].splice(index, 1);
+        if (events[date].length === 0) delete events[date];
+        saveEvents();
+        populateEventList(date);
+    }
+}
+
 function addEvent(date) {
     const newEvent = eventInput.value.trim();
     if (newEvent) {
         if (!events[date]) events[date] = [];
         events[date].push(newEvent);
-        eventInput.value = ""; // Clear input
+        saveEvents();
+        eventInput.value = "";
         populateEventList(date);
         console.log("Updated Events:", JSON.stringify(events, null, 2));
     }
 }
 
-// Delete All Events
 function deleteEvents(date) {
     if (confirm("Are you sure you want to delete all events for this date?")) {
         delete events[date];
+        saveEvents();
         populateEventList(date);
         console.log("Updated Events:", JSON.stringify(events, null, 2));
     }
 }
 
-// Close the event window when clicking outside it or on the background
 document.addEventListener("click", (e) => {
     const isClickInsideWindow =
         eventWindow.contains(e.target) || calendarContainer.contains(e.target);
@@ -152,13 +193,11 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Close window when the close button is clicked
 closeWindow.addEventListener("click", (e) => {
-    e.stopPropagation(); // Prevent background click close
+    e.stopPropagation();
     closeEventWindow();
 });
 
-// Navigation Buttons
 prevMonthButton.addEventListener("click", () => changeMonth(-1));
 nextMonthButton.addEventListener("click", () => changeMonth(1));
 
@@ -167,5 +206,4 @@ function changeMonth(offset) {
     renderCalendar(currentDate);
 }
 
-// Initial Render
 renderCalendar(currentDate);
