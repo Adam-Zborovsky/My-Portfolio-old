@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #333;
+    background: #49698e;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.gallery-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #007aff;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-header h1 {
+    margin: 0 0 10px;
+}
+
+#search-bar {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background: white;
+    color: #007aff;
+    transition: background 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #005ecb;
+    color: white;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.gallery-container img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.lightbox-controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.lightbox-controls button {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#category-form {
+    display: none;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+#upload-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+#image-upload,
+#category-select,
+#new-category {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#upload-button,
+#create-category-button,
+#add-category-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #007aff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#upload-button:hover,
+#create-category-button:hover,
+#add-category-button:hover {
+    background: #005ecb;
+}
+
+/* Animations */
+.gallery-container img {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-header {
+        padding: 10px;
+        margin-top: 0;
+        border-radius: 0;
+        width: 100vw;
+    }
+
+    #search-bar {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    .filter-buttons {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .filter-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .gallery-container {
+        margin-left: 2vw;
+        grid-template-columns: repeat(2fr, minmax(100px, 1fr));
+    }
+
+    .gallery-container img {
+        border-radius: 5px;
+    }
+
+    .lightbox-controls button {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+    #search-bar {
+        font-size: 0.8rem;
+    }
+
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .lightbox-controls button {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    #upload-form,
+    #category-form {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #upload-form input,
+    #upload-form select,
+    #upload-button,
+    #create-category-button {
+        width: 90%;
+    }
+
+    #category-form input,
+    #add-category-button {
+        width: 90%;
+    }
+}

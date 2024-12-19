@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Photo Gallery</title>
+    <link rel="stylesheet" href="style/photoGallery.css">
+</head>
+
+<body>
+    <header class="gallery-header">
+        <h1>Dynamic Photo Gallery</h1>
+        <input type="text" id="search-bar" placeholder="Search images..." />
+        <div class="filter-buttons" id="filter-buttons">
+            <button data-filter="All" class="filter-btn">All</button>
+        </div>
+        <form id="upload-form">
+            <input type="file" id="image-upload" accept="image/*" />
+            <select id="category-select">
+                <option value="default">Select Category</option>
+
+            </select>
+            <button type="button" id="create-category-button">Create Category</button>
+            <button type="button" id="upload-button">Upload</button>
+        </form>
+
+        <form id="category-form">
+            <input type="text" id="new-category" placeholder="Add new category" />
+            <button type="button" id="add-category-button">Add</button>
+        </form>
+    </header>
+    <main class="gallery-container" id="gallery-container"></main>
+    <div class="lightbox hidden" id="lightbox">
+        <span id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Preview">
+        <div class="lightbox-controls">
+            <button id="prev-img">&lt;</button>
+            <button id="next-img">&gt;</button>
+        </div>
+    </div>
+
+    <script src="script/photoGallery.js"></script>
+</body>
+
+</html>

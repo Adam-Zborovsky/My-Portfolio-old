@@ -217,7 +217,9 @@ main#carousel {
 
 .item a {
     margin-top: 10px;
+    cursor: pointer;
     display: inline-block;
+    pointer-events: none;
     padding: 8px 15px;
     background-color: #007acc;
     color: white;
@@ -226,20 +228,26 @@ main#carousel {
 }
 
 .item.active {
-    display: block; /* Ensure the active item is visible */
+    display: block;
     opacity: 1;
-    transform: translate(-50%, -50%) translateZ(200px) scale(1); /* Center and scale slightly */
+    transform: translate(-50%, -50%) translateZ(200px) scale(1);
+    z-index: 3;
+}
+.item.active a {
+    pointer-events: all;
 }
 
 .item.left {
     display: block;
-    transform: translateX(-700px) translateY(-50%) rotateY(10deg) scale(0.9); /* Adjusted distance from center */
+    pointer-events: all;
+    transform: translateX(-700px) translateY(-50%) rotateY(10deg) scale(0.9);
     opacity: 0.7;
 }
 
 .item.right {
     display: block;
-    transform: translateX(300px) translateY(-50%) rotateY(-10deg) scale(0.9); /* Symmetric distance from center */
+    pointer-events: all;
+    transform: translateX(300px) translateY(-50%) rotateY(-10deg) scale(0.9);
     opacity: 0.7;
 }
 
